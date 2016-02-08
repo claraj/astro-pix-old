@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+  h1=title
+  img(src= '#{url}')
+
+  p.credit #{credit}
+  p.description=explanation
+  p.date This is NASA's Astronomy Picture of the day for #{date}.
+
+  p
+    a(href ="#{apodurl}") See this image at NASA's site
+
+
+  include buttons.jade
