@@ -19,11 +19,10 @@ function getError(){
 
 function apodRequest(random, callback) {
 
+  var queryParam = { 'api_key' : APIKEY };
+
   if (random) {
-    queryParam = { "api_key" : APIKEY, "date" :randomDateString() };
-  }
-  else {
-    queryParam = { 'api_key' : APIKEY };
+    queryParam.date = randomDateString();
   }
 
   request({uri :baseURL, qs: queryParam} , function(error, request, body){
@@ -43,14 +42,12 @@ function apodJSONReply(error, response, body, callback){
   }
 
   else {
-
     //Log error info, set apodError flag to true
     console.log("Error in JSON request: ")
     console.log(error);
     console.log(response);
     console.log(body);
     apodError = true;
-
   }
 
   callback();
