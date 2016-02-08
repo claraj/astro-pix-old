@@ -5,7 +5,6 @@ var request = require('request');
 var moment = require('moment');
 
 var baseURL = 'https://api.nasa.gov/planetary/apod' ;
-var APIKEY = process.env.APOD_API_KEY;
 
 
 /* GET home page. */
