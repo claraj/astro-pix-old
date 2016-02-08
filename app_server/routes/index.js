@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
 
+var bodyParser = require('body-parser');
 var apod = require('../controllers/apod');
 
 
@@ -39,6 +39,8 @@ router.post('/fetch_picture', parser, function fetch_picture(req, res) {
   }
 
 });
+
+
 
 
 function provideResponse(res){

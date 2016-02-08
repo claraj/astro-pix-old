@@ -26,12 +26,11 @@ function apodRequest(random, callback) {
     queryParam = { 'api_key' : APIKEY };
   }
 
-  request({uri :baseURL, qs: queryParam} , function(error, request, body, call){
+  request({uri :baseURL, qs: queryParam} , function(error, request, body){
     apodJSONReply(error, request, body, callback);
   });
 
 }
-
 
 
 function apodJSONReply(error, response, body, callback){
@@ -57,6 +56,8 @@ function apodJSONReply(error, response, body, callback){
   callback();
 
 }
+
+
 
 //Add some custom attributes, for example image
 //credit, and create a URL to NASA's site for
