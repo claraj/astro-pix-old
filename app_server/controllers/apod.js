@@ -19,8 +19,10 @@ function getError(){
 
 function apodRequest(random, callback) {
 
+  //All requests need the API key, and return today's picture
   var queryParam = { 'api_key' : APIKEY };
 
+  //Unless a date parameter is supplied.
   if (random) {
     queryParam.date = randomDateString();
   }
@@ -43,7 +45,7 @@ function apodJSONReply(error, response, body, callback){
 
   else {
     //Log error info, set apodError flag to true
-    console.log("Error in JSON request: ")
+    console.log("Error in JSON request: ");
     console.log(error);
     console.log(response);
     console.log(body);
@@ -51,7 +53,6 @@ function apodJSONReply(error, response, body, callback){
   }
 
   callback();
-
 }
 
 
@@ -86,7 +87,6 @@ function addCustomAttributes(){
   apodJSON.apodurl = url;
 
   console.log("Custom" + JSON.stringify(apodJSON));  //for debugging
-
 }
 
 //APOD started on June 16th, 1995. Select a random date between
@@ -104,7 +104,7 @@ function randomDateString(){
   //How many milliseconds between APOD start and now?
   var delta = todayUnix - APODstartUnix;
 
-  //Generate a random number between 0 and (number of milliseconds between APOD start and now)
+  //A random number between 0 and (milliseconds between APOD start and now)
   var offset = Math.floor((Math.random() * delta));
   //And random number to APOD start
   var randomUnix = APODstartUnix + offset;
